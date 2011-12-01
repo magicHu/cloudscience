@@ -1,0 +1,62 @@
+# Additional translations at http://github.com/plataformatec/devise/wiki/I18n
+
+zh-CN:
+  errors:
+    messages:
+      expired: "帐号已过期，请重新注册一个"
+      not_found: "没找到"
+      already_confirmed: "已认证通过，请登录"
+      not_locked: "解锁"
+      not_saved:
+        one: "1 error prohibited this %{resource} from being saved:"
+        other: "%{count} errors prohibited this %{resource} from being saved:"
+
+  devise:
+    title:
+      sign_in: '登录'
+      sign_up: '注册'
+      sign_out: '注销'
+    failure:
+      already_authenticated: '已登录.'
+      unauthenticated: '请登录或注册.'
+      unconfirmed: 'You have to confirm your account before continuing.'
+      locked: 'Your account is locked.'
+      invalid: '邮箱或密码错误.'
+      invalid_token: 'Invalid authentication token.'
+      timeout: 'Your session expired, please sign in again to continue.'
+      inactive: 'Your account was not activated yet.'
+    sessions:
+      signed_in: '登录成功.'
+      signed_out: '注销成功.'
+    passwords:
+      send_instructions: 'You will receive an email with instructions about how to reset your password in a few minutes.'
+      updated: 'Your password was changed successfully. You are now signed in.'
+      updated_not_active: 'Your password was changed successfully.'
+      send_paranoid_instructions: "If your e-mail exists on our database, you will receive a password recovery link on your e-mail"
+    confirmations:
+      send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
+      send_paranoid_instructions: 'If your e-mail exists on our database, you will receive an email with instructions about how to confirm your account in a few minutes.'
+      confirmed: 'Your account was successfully confirmed. You are now signed in.'
+    registrations:
+      signed_up: '欢迎，您已注册成功.'
+      inactive_signed_up: 'You have signed up successfully. However, we could not sign you in because your account is %{reason}.'
+      updated: 'You updated your account successfully.'
+      destroyed: 'Bye! Your account was successfully cancelled. We hope to see you again soon.'
+      reasons:
+        inactive: 'inactive'
+        unconfirmed: 'unconfirmed'
+        locked: '已锁定'
+    unlocks:
+      send_instructions: 'You will receive an email with instructions about how to unlock your account in a few minutes.'
+      unlocked: 'Your account was successfully unlocked. You are now signed in.'
+      send_paranoid_instructions: 'If your account exists, you will receive an email with instructions about how to unlock it in a few minutes.'
+    omniauth_callbacks:
+      success: 'Successfully authorized from %{kind} account.'
+      failure: 'Could not authorize you from %{kind} because "%{reason}".'
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation instructions'
+      reset_password_instructions:
+        subject: 'Reset password instructions'
+      unlock_instructions:
+        subject: 'Unlock Instructions'

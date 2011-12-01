@@ -1,0 +1,60 @@
+zh-CN:
+  back: '返回'
+  required: '必填'
+  optional: '选填'
+  views:
+    pagination:
+      previous: "&laquo; 前一页"
+      next: "后一页 &raquo;"
+      truncate: "..."
+      first: "第一页"
+      last: "最后一页"
+  activerecord:
+    attributes:
+      user:
+        email: '邮箱'
+        password: '密码'
+        password_confirmation: '密码确认'
+        current_password: '当前密码'
+        remember_me: '记住我'
+        nickname: '昵称'
+        name: '真实姓名'
+        research_domain: '研究领域'
+        workstation: '单位'
+        publish_paper: '发表论文'
+        education_experience: '教育经历'
+        mobile: '手机号码'
+        telephone: '电话号码'
+      paper:
+        title: '标题'
+        author: '作者'
+        year: '年'
+        journal: '期刊'
+        volume: '卷'
+        issue: '期'
+        page: '页码'
+        page_start: '页码'
+        page_end: '页码'
+        summary: '摘要'
+        keywords: '关键字'
+        link: '链接'
+      folder:
+        name: '文件夹'
+        description: '描述'
+      idea:
+        title: '标题'
+        desc: '详细内容'
+        state: '状态'
+        deal_time: '处理时间'
+        note: '备注'
+  mylibrary: '我的收藏'
+  mypublisher: '我的作品'
+  new_paper: '新文献'
+  paper: '文献'
+  papers: '所有文献'
+  search: '搜索'
+  mytags: '我的标签'
+  folders: '我的文件夹'
+  ideas: '我的意见和建议'
+  
+  
