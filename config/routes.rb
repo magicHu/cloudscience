@@ -46,7 +46,7 @@ Cloudscience::Application.routes.draw do
     end
   end
 
-  devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'} do
+  devise_for :users, :path => "users", :path_names => { :sign_in => 'login', :sign_out => 'logout', :sign_up => 'register'} do
     get 'login' => 'devise/sessions#new', :as => :new_user_session
     post 'login' => 'devise/sessions#create', :as => :user_session
     get 'logout' => 'custom_devise/sessions#destroy', :as => :destroy_user_session

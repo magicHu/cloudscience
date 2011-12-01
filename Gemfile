@@ -6,6 +6,7 @@ gem 'rails', '3.1.3'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'mysql2'
 
 
 # Gems used only for assets and not required
@@ -17,18 +18,21 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
 gem 'execjs'
 gem 'therubyracer'
+# 国际化
+gem "rails-i18n"
 
-gem 'mysql2'
+# 登陆/认证
 gem 'devise'
+gem "omniauth"
 
 gem 'dynamic_form'
+
+# 分页
 gem 'kaminari'
-
+# Tag
 gem 'acts-as-taggable-on'
-
 
 
 # To use ActiveModel has_secure_password
