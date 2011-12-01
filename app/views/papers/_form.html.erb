@@ -1,0 +1,83 @@
+<%= form_for(@paper) do |f| %>
+
+  <%= f.error_messages %>
+
+  <div class="clearfix">
+    <%= f.label :title %>
+	<div class="input">
+    	<%= f.text_field :title %><%= render 'common/required' %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :author %>
+	<div class="input">
+    <%= f.text_field :author %><%= render 'common/required' %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :year %>
+	<div class="input">
+    <%= f.text_field :year %><%= render 'common/optional' %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :journal %>
+	<div class="input">
+    <%= f.text_field :journal %><%= render 'common/optional' %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :volume %>
+	<div class="input">
+    <%= f.text_field :volume %><%= render 'common/optional' %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :issue %>
+	<div class="input">
+    <%= f.text_field :issue %><%= render 'common/optional' %>
+	</div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :page %>
+	<div class="input">
+    	<%= f.text_field :page_start, :class => 'input-mini' %>~<%= f.text_field :page_end, :class => 'input-mini' %>
+    	<%= render 'common/optional' %>
+	</div>
+  </div>
+
+  <div class="clearfix">
+    <%= f.label :summary %>
+	<div class="input">
+    	<%= f.text_area :summary, :rows => 5 %><%= render 'common/optional' %>
+	</div>
+  </div>
+  
+  <div class="clearfix">
+    <%= f.label :keywords %>
+	<div class="input">
+    	<%= f.text_field :keywords %><%= render 'common/optional' %>
+	</div>
+  </div>
+  <div class="clearfix">
+    <%= f.label :link %>
+	<div class="input">
+    	<%= f.text_field :link %><%= render 'common/optional' %>
+	</div>
+  </div>
+
+  <div class="clearfix">
+	<div class="input">
+   		<%= f.check_box :is_publisher %>
+		<%= f.label '我是文献的作者' %>
+	</div>
+  </div>
+
+  <div class="clearfix">
+	<div class="input">
+	  <%= f.submit :class => 'btn' %>
+	  <%= link_to 'Back', papers_path, :class => 'btn' %>
+	</div>
+  </div>
+<% end %>

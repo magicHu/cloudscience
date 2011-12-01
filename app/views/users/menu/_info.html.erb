@@ -1,0 +1,5 @@
+<% if user_signed_in? %>
+	<span style="background-color: #62cffc;margin-right: 10px;">
+		Welcome, <%= current_user.nickname %>
+	</span>
+<% end %>

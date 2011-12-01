@@ -1,0 +1,35 @@
+<h1>My Ideas</h1>
+
+<ul class="pills" data-pills="pills" >
+    <li class="active"><a href="#all">所有</a></li>
+    <li><a href="#new">待处理</a></li>
+    <li><a href="#open">正在处理</a></li>
+    <li><a href="#close">已处理</a></li>
+</ul>
+<div id="my-tab-content" class="tab-content">
+	<div class="active" id="all">
+	  <%= render :file => 'ideas/ideas' %>
+	</div>
+	<div id="new">
+	</div>
+	<div id="open">
+	</div>
+	<div id="close">
+	</div>
+</div>
+
+<script>
+	$('.pills').bind('change', function (e) {
+		target = "" + e.target;	// activated tab
+		type = target.substr(target.indexOf("#")+1);
+		$.post('/ideas/type?type=' + type, function(data) {
+			$('#' + type).html(data);
+		});
+		e.target // activated tab
+		e.relatedTarget // previous tab
+	});
+</script>
+
+<br />
+
+<%= button_to 'New Idea', new_idea_path, :class => 'btn', :method => :get %>

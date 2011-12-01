@@ -1,0 +1,39 @@
+<%= button_to 'Remove from My Library', remove_from_library_path(:id => @paper), :class => "pull-right btn" %>
+
+<div class="paper">
+	<h3><%= @paper.title %></h3>
+	<p><%= @paper.author %>(<%= @paper.year %>)</p>
+	<p><%= @paper.journal %>&nbsp;<%= @paper.volume %>(<%= @paper.issue %>)&nbsp;p.<%= @paper.page_start %>-<%= @paper.page_end %></p>
+	<p><%= link_to @paper.link, @paper.link %></p>
+	<p>关键字：</p>
+	<p><%= @paper.keywords %></p>
+	
+	<p>摘要：</p>
+	<p><%= @paper.summary %></p>
+	<p><%= t('mytags') %>: </p>
+	<p>
+		<%= form_tag update_paper_path(@paper) do %>
+			<%= text_field_tag :tags, @tags %>
+			<%= submit_tag '打标签', :class => 'btn' %>
+		<% end %>
+	</p>
+	<p>
+		文件夹：
+		<% current_user.folders.each do |folder| %>
+			<%= check_box_tag 'paper_folder_ids', folder.id, @paper.folders.by_user(current_user).include?(folder) %>
+			<%= folder.name %>
+		<% end %>
+	</p>
+</div>
+
+<script>
+	$("input[name='paper_folder_ids']").bind('click', function(){
+		if(this.checked) {
+			$.post("/folders/" + $(this).val() + "/add_paper", {paper_id : <%= @paper.id %>});
+		} else {
+			$.post("/folders/" + $(this).val() + "/remove_paper", {paper_id : <%= @paper.id %>});
+		}
+		refresh_folders();
+	});
+
+</script>

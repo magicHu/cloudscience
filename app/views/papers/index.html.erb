@@ -1,0 +1,10 @@
+<%= render 'common/search', :locals => {:path => search_papers_path } %>
+<br />
+<%= render :partial => 'papers/new' %>
+
+
+<%= render @papers %>
+
+<br />
+
+<%= paginate @papers %>

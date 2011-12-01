@@ -1,0 +1,24 @@
+<% if user_signed_in? %>
+<div id="folders-div">
+	<%= render 'layouts/folder' %>
+</div>
+<a href="<%= new_folder_path %>" class="btn" id="new-paper-link">Create Folder</a>
+
+<div id="new-paper-div" class="modal hide fade"></div>
+<script>
+	$('#new-paper-link').click(function() {
+		$.get(this.href, function(data) {
+			$('#new-paper-div').html(data);
+		});
+		return false;
+	})
+	
+	function refresh_folders() {
+	  $.get("<%= refresh_folders_path %>", function(data) {
+	    $('#folders-div').html(data);
+	  });
+	}
+
+</script>
+
+<% end %>

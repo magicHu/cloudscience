@@ -1,0 +1,21 @@
+
+<div class="pagetitle">
+	<%= @folder.name %>
+	
+	<p class="pull-right">
+		<%= link_to 'Edit Folder', edit_folder_path(@folder), :class => 'btn', :id => 'edit-folder-link' %>
+		<%= link_to 'Remove Folder', @folder, :method => :delete, :class => 'btn', :id => 'remove-folder-link' %>
+	</p>
+</div>
+
+<%= render @folder.papers %>
+
+<div id="edit-paper-div" class="modal hide fade"></div>
+<script>
+	$('#edit-folder-link').click(function() {
+		$.get(this.href, function(data) {
+			$('#edit-paper-div').html(data);
+		});
+		return false;
+	})
+</script>

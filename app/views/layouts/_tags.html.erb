@@ -1,0 +1,7 @@
+# coding: utf-8
+<% if user_signed_in? %>
+	<h3>我的标签</h3>
+	<% tag_taggings.each do |tag, taggings| %>
+		<p><%= link_to "#{tag.name}(#{taggings.count})", tag_path(:id => tag.name) %></p>
+	<% end %>
+<% end %>

@@ -1,0 +1,43 @@
+
+<div class="modal-header">
+  <a href="#" class="close">&times;</a>
+  <h3>Edit Folder</h3>
+</div>
+<div class="modal-body">
+	<%= form_for(@folder, :html => {:id => 'edit-folder-form'}) do |f| %>
+	<%= f.error_messages %>
+	<div class="clearfix">
+		<%= f.label :name %>
+		<div class="input">
+			<%= f.text_field :name, :class => 'input-xlarge' %>
+		</div>
+	</div>
+	<div class="clearfix">
+		<%= f.label :description %>
+		<div class="input">
+			<%= f.text_area :description, :class => 'input-xlarge', :rows => 6 %>
+		</div>
+	</div>
+	<% end %>
+</div>
+<div class="modal-footer">
+  <a href="#" class="btn secondary" id="close-btn">Close</a>
+  <a href="#" class="btn primary" id="submit-btn">Create Folder</a>
+</div>
+
+<script>
+	$('#edit-paper-div').modal({
+		backdrop: 'static',
+		keyboard: true,
+		show: true
+	});
+	$('#edit-paper-div #close-btn').click(function() {
+		$('#edit-paper-div').modal('hide');
+		return false;
+	});
+	$('#edit-paper-div #submit-btn').click(function() {
+		$('#edit-folder-form').submit();
+		$('#edit-paper-div').modal('hide');
+		return false;
+	});
+</script>>

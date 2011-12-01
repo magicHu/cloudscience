@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cloud</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="header">
+  <div class="topbar">
+      <div class="fill">
+        <div class="container">
+
+		  <ul class="nav">
+			<% if user_signed_in? %>
+				<% if current_user.admin? %>
+					<li><%= link_to '意见和建议处理', all_ideas_path %></li>
+				<% else %>
+					<li><%= link_to t('mylibrary'), library_path %></li>
+					<li><%= link_to t('mypublisher'), publications_path %></li>
+					<li><%= link_to t('papers'), papers_path %></li>
+					<li><%= link_to t('folders'), folders_path %></li>
+					<li><%= link_to t('ideas'), ideas_path %></li>
+				<% end %>
+			<% end %>
+		  </ul>
+		  
+		  <div class="pull-right">
+		  	<%= render 'users/menu/info' %>
+			<%= render 'users/menu/registration_items' %>
+			<%= render 'users/menu/login_items' %>
+		  </div>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="container">
+
+      <div class="content">
+        <div class="row">
+          <div class="span12">
+            <%= render :partial => 'layouts/notice' %>
+
+			<%= yield %>
+          </div>
+          <div class="span4">
+          	<div id="tags-div">
+            	<%= render :partial => 'layouts/tags' %>
+            </div>
+			<%= render :partial => 'layouts/folders' %>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+		<p>Copyright &copy; <%= Time.now.year %> 康昱盛科技有限公司, All rights reserved.</p>
+      </footer>
+    </div> <!-- /container -->
+
+</body>
+</html>

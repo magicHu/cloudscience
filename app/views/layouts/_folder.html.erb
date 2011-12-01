@@ -1,0 +1,7 @@
+# coding: utf-8
+<% if user_signed_in? %>
+	<h3>我的文件夹</h3>
+	<% current_user.folders.each do |folder| %>
+		<p><%= link_to "#{folder.name}(#{folder.folder_papers_count})", folder_path(:id => folder.name) %></p>
+	<% end %>
+<% end %>

@@ -1,0 +1,24 @@
+<h3>My Folders</h3>
+
+<table class="zebra-striped">
+  <tr>
+    <th><%= t('folder.name') %></th>
+    <th><%= t('folder.description') %></th>
+    <th></th>
+  </tr>
+
+<% @folders.each do |folder| %>
+  <tr>
+    <td><%= folder.name %></td>
+    <td><%= folder.description %></td>
+    <td>
+	    <%= link_to 'Edit', edit_folder_path(folder) %> |
+	    <%= link_to 'Remove', folder, :confirm => 'Are you sure?', :method => :delete %>
+	</td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Folder', new_folder_path, :class => 'btn' %>

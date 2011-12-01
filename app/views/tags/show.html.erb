@@ -1,0 +1,6 @@
+<p id="notice"><%= notice %></p>
+
+<% @taggings.each do |tagging| %>
+	<%= render tagging.taggable %>
+<% end %>
+

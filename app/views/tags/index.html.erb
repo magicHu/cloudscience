@@ -1,0 +1,11 @@
+
+<%= form_tag do %>
+	<%= text_field_tag :tagnames, params[:tagnames]  %>
+	<%= submit_tag '添加标签' %>
+<% end %>
+
+<ul class="tags"><%= t'mytags' %></ul>
+
+<% @tags.each do |tag| %>
+	<%= link_to tag.name, tag_path(:id => tag.name) %>
+<% end %>

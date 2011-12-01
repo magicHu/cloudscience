@@ -1,0 +1,7 @@
+
+<%= form_tag locals[:path], :method => :get, :class => 'pull-right' do %>
+	<div class="search">
+		<%= text_field_tag :keyword, params[:keyword], :class=>"input", :placeholder=>"keywords" %>
+		<%= submit_tag t('search'), :class=>"btn" %>
+	</div>
+<% end %>

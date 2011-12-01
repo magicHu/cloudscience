@@ -1,0 +1,7 @@
+<%= render 'common/search', :locals => {:path => search_library_path} %>
+<br />
+<%= render :partial => 'papers/new' %>
+<%= render :partial => 'paper', :collection => @papers %>
+
+<br />
+<%= paginate @papers %>

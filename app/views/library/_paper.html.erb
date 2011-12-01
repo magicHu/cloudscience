@@ -1,0 +1,13 @@
+<p style="text-align: right;">
+	<% unless is_publisher?(@paper) %>
+	<% end %>
+</p>
+
+<div class="paper">
+	<h3><%= link_to paper.title, paper_in_library_path(paper) %></h3>
+	<p><%= paper.author %>(<%= paper.year %>)</p>
+	<p><%= paper.journal %>&nbsp;<%= paper.volume %>(<%= paper.issue %>)&nbsp;p.<%= paper.page_start %>-<%= paper.page_end %></p>
+	<p><%= link_to paper.link, paper.link %></p>
+	<p>关键字：</p>
+	<p><%= paper.keywords %></p>
+</div>

@@ -1,0 +1,23 @@
+
+<% if is_in_library(@paper) %>
+	<p class="pull-right btn">In your library</p>
+<% else %>
+	<%= button_to 'Add to My Library', add_to_library_path(:id => @paper), :class => "pull-right btn primary" %>
+<% end %>
+
+<div class="paper">
+	<h3><%= @paper.title %></h3>
+	<p><%= @paper.author %>(<%= @paper.year %>)</p>
+	<p><%= @paper.journal %>&nbsp;<%= @paper.volume %>(<%= @paper.issue %>)&nbsp;p.<%= @paper.page_start %>-<%= @paper.page_end %></p>
+	<p><%= link_to @paper.link, @paper.link %></p>
+	<p>关键字：</p>
+	<p><%= @paper.keywords %></p>
+	
+	<p>摘要：</p>
+	<p><%= @paper.summary %></p>
+</div>
+
+<% if is_my_publish?(@paper) %>
+	<%= link_to t('Edit'), edit_paper_path(@paper) %> | 
+	<%= link_to t('Delete'), @paper, :method => :delete %>
+<% end %>
