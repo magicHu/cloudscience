@@ -18,6 +18,19 @@ end
 
 gem 'jquery-rails'
 
+gem 'execjs'
+gem 'therubyracer'
+
+gem 'mysql2'
+gem 'devise'
+
+gem 'dynamic_form'
+gem 'kaminari'
+
+gem 'acts-as-taggable-on'
+
+
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
