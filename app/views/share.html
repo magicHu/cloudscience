@@ -1,46 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>康昱盛信息科技有限公司</title>
+  <title>康昱盛信息科技有限公司</title>
 
-    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
-    <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
+  <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+  <link href="http://twitter.github.io/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet">
 
-
-    <style type="text/css">
+  <style type="text/css">
       #shareDiv {
         margin: 0 auto;
         width: 1024px;
       }
 
       #content {
-        width: 600px;
+        width: 700px;
       }
     </style>
-  </head>
+</head>
 
-  <body id="shareBody">
-    <div id="shareDiv">
-      <img src="../assets/images/cloudscientific.gif" alt="">
+<body id="shareBody">
+  <div id="shareDiv">
+    <img src="../assets/images/cloudscientific.gif" alt="">
 
-      <textarea id="content" rows="10" placeholder="请输入分享的内容..."></textarea>
+    <div class="alert alert-error hide" id="errorMessage"></div>
 
-      <div class="bshare-custom">
-        <a title="分享到新浪微博" class="bshare-sinaminiblog"></a>
-        <a title="分享到腾讯微博" class="bshare-qqmb"></a>
-        <a title="分享到人人网" class="bshare-renren"></a>
-        <a title="分享到QQ空间" class="bshare-qzone"></a>
-        <a title="分享到网易微博" class="bshare-neteasemb"></a>
-        <a title="更多平台" class="bshare-more bshare-more-icon more-style-addthis"></a>
+    <form class="form-horizontal">
+      <div class="control-group">
+        <label class="control-label" for="inputContent">分享内容</label>
+        <div class="controls">
+          <textarea id="content" rows="10" placeholder="请输入分享的内容..."></textarea>
+        </div>
       </div>
-    </div>
 
+      <div class="control-group">
+        <label class="control-label" for="inputUrl">URL</label>
+        <div class="controls">
+          <input type="text" id="url" class="input-block-level" placeholder="start with http://" />
+        </div>
+      </div>
 
-      <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=864ea934-c7b1-4f87-8c24-4a23d3516a56&amp;pophcol=2&amp;lang=zh"></script>
-      <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/bshareC0.js"></script>
-  </body>
+      <div class="control-group">
+        <label class="control-label" for="inputPic">图片链接</label>
+        <div class="controls">
+          <input type="text" id="pic" class="input-block-level" />
+        </div>
+      </div>
+
+      <button class="btn btn-large btn-success btn-block" id="shareBtn">分享</button>
+    </form>
+  </div>
+
+  <script type="text/javascript" charset="utf-8" src="http://static.bshare.cn/b/buttonLite.js#style=-1&amp;uuid=864ea934-c7b1-4f87-8c24-4a23d3516a56&amp;lang=zh"></script>
+
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript">
+    $("#shareBtn").click(function() {
+      $('#errorMessage').html("").hide();
+
+      var content = $("#content").val();
+      if (!content) {
+        $('#errorMessage').html("请输入分享内容").show();
+      }
+
+      bShare.entries = [];//清除自定义分享内容，然后再自定义分享内容
+  
+      bShare.addEntry({
+        url: $("#url").val() || "http://www.cloudscientific.com/",
+        summary: $("#content").val(), 
+        pic: $("#pic").val()
+      });
+
+      bShare.isReady=false;//重新加载分享按钮
+      bShare.completed = false;
+      bShare.start();
+      bShare.share(event, "bsharesync");
+      return false;
+    });
+
+  </script>
+</body>
 </html>
